@@ -2,26 +2,325 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════════════════════════
+   GLOBAL DESIGN SYSTEM — Max Klein Portfolio
+   Single source of truth for all visual tokens.
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── Design tokens ─────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Backgrounds */
+  --bg-base:     #000000;
+  --bg-surface:  rgba(255, 255, 255, 0.018);
+  --bg-overlay:  rgba(255, 255, 255, 0.035);
+
+  /* Foregrounds */
+  --fg-primary:   rgba(255, 255, 255, 0.88);
+  --fg-secondary: rgba(255, 255, 255, 0.55);
+  --fg-tertiary:  rgba(255, 255, 255, 0.30);
+  --fg-muted:     rgba(255, 255, 255, 0.18);
+  --fg-ghost:     rgba(255, 255, 255, 0.06);
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-soft:   rgba(255, 255, 255, 0.11);
+  --border-medium: rgba(255, 255, 255, 0.18);
+
+  /* Accent palette — violet → indigo → cyan */
+  --accent-violet: #c4b5fd;  /* violet-300 */
+  --accent-indigo: #818cf8;  /* indigo-400 */
+  --accent-cyan:   #67e8f9;  /* cyan-300   */
+
+  /* Semantic */
+  --color-active:   #34d399;  /* emerald-400 */
+  --color-drafting: #fbbf24;  /* amber-400   */
+  --color-error:    #f87171;  /* red-400     */
+
+  /* Layout */
+  --container-max:  1080px;
+  --container-px:   clamp(1.5rem, 5vw, 6rem);
+  --section-py:     clamp(4.5rem, 10vw, 9rem);
+  --navbar-h:       52px;
+
+  /* Legacy Next.js vars */
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base reset & rendering ─────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background:          #000;
+  color-scheme:        dark;
+  scroll-behavior:     smooth;
+  /* Prevent layout shift from scrollbar appearing */
+  scrollbar-gutter:    stable;
+  /* iOS momentum scroll */
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background:              #000;
+  color:                   #fff;
+  /* Premium font rendering */
+  -webkit-font-smoothing:  antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering:          optimizeLegibility;
+  font-feature-settings:   "kern" 1, "liga" 1, "calt" 1;
+  /* Prevent text size inflation on mobile */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust:         100%;
+  /* Prevent overscroll bounce colour flash */
+  overscroll-behavior:      none;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* ── Scrollbar — hidden on webkit, thin on firefox ─────────────── */
+::-webkit-scrollbar            { display: none; }
+*                              { scrollbar-width: none; }
+
+/* ── Text selection — accent-tinted ────────────────────────────── */
+::selection {
+  background: rgba(139, 92, 246, 0.22);
+  color:      #fff;
+}
+::-moz-selection {
+  background: rgba(139, 92, 246, 0.22);
+  color:      #fff;
+}
+
+/* ── Focus styles — accessible and elegant ─────────────────────── */
+:focus { outline: none; }
+:focus-visible {
+  outline:        2px solid rgba(139, 92, 246, 0.55);
+  outline-offset: 3px;
+  border-radius:  4px;
+}
+
+/* ── Tap highlight removal (mobile) ────────────────────────────── */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* ── Image defaults ─────────────────────────────────────────────── */
+img,
+video {
+  max-width:    100%;
+  height:       auto;
+  display:      block;
+  border-style: none;
+}
+
+/* ── Reduced motion — respect user preference ───────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration:   0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration:  0.01ms !important;
+    scroll-behavior:      auto !important;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   UTILITY CLASSES
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── Container ─────────────────────────────────────────────────── */
+.container-site {
+  width:     100%;
+  max-width: var(--container-max);
+  margin-left:  auto;
+  margin-right: auto;
+  padding-left:  var(--container-px);
+  padding-right: var(--container-px);
+}
+
+/* ── Dot grid background ────────────────────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.09) 1px,
+    transparent 1px
+  );
+  background-size: 42px 42px;
+  opacity:         0.4;
+}
+
+/* ── Subtle noise overlay (apply to ::after on container) ───────── */
+.noise::after {
+  content:          "";
+  position:         absolute;
+  inset:            0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size:  200px 200px;
+  opacity:          0.025;
+  pointer-events:   none;
+  mix-blend-mode:   overlay;
+}
+
+/* ── Gradient text accent ───────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(
+    118deg,
+    var(--accent-violet) 0%,
+    var(--accent-indigo) 42%,
+    var(--accent-cyan)   100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip:         text;
+}
+
+/* ── Section label pattern ──────────────────────────────────────── */
+.section-label {
+  font-size:      10px;
+  font-weight:    500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color:          rgba(255, 255, 255, 0.18);
+}
+
+/* ── Thin horizontal rule ───────────────────────────────────────── */
+.rule {
+  height:           1px;
+  background-color: var(--border-subtle);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TYPOGRAPHY SCALE
+   All sizes use clamp() for fluid, responsive scaling.
+   Pattern: text-{page}-{role}
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── Hero / homepage ────────────────────────────────────────────── */
+.text-hero {
+  font-size:      clamp(2.45rem, 5.6vw, 5.2rem);
+  line-height:    1.06;
+  letter-spacing: -0.03em;
+}
+
+/* ── About ──────────────────────────────────────────────────────── */
+.text-about-hero {
+  font-size:      clamp(2.8rem, 6.5vw, 6.2rem);
+  line-height:    1.03;
+  letter-spacing: -0.04em;
+}
+
+.text-chapter-head {
+  font-size:      clamp(1.75rem, 3.6vw, 3.1rem);
+  line-height:    1.15;
+  letter-spacing: -0.03em;
+}
+
+.text-pull-quote {
+  font-size:      clamp(1.45rem, 3vw, 2.55rem);
+  line-height:    1.3;
+  letter-spacing: -0.022em;
+}
+
+.text-vision-ghost {
+  font-size:      clamp(4.5rem, 14vw, 13rem);
+  line-height:    0.92;
+  letter-spacing: -0.06em;
+}
+
+/* ── Experience ─────────────────────────────────────────────────── */
+.text-exp-hero {
+  font-size:      clamp(3.2rem, 7.5vw, 7.4rem);
+  line-height:    0.96;
+  letter-spacing: -0.044em;
+}
+
+.text-exp-role {
+  font-size:      clamp(1.7rem, 3.4vw, 3rem);
+  line-height:    1.12;
+  letter-spacing: -0.028em;
+}
+
+.text-exp-ghost {
+  font-size:      clamp(4rem, 12vw, 10.5rem);
+  line-height:    0.88;
+  letter-spacing: -0.06em;
+}
+
+/* ── Now ────────────────────────────────────────────────────────── */
+.text-now-hero {
+  font-size:      clamp(5rem, 16vw, 15rem);
+  line-height:    0.88;
+  letter-spacing: -0.06em;
+}
+
+.text-now-section {
+  font-size:      clamp(1.6rem, 3.2vw, 2.7rem);
+  line-height:    1.16;
+  letter-spacing: -0.026em;
+}
+
+.text-now-ghost {
+  font-size:      clamp(4rem, 11vw, 9.5rem);
+  line-height:    0.9;
+  letter-spacing: -0.058em;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────── */
+.text-footer-closing {
+  font-size:      clamp(3rem, 7.2vw, 7.2rem);
+  line-height:    1.0;
+  letter-spacing: -0.046em;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LAYOUT UTILITIES
+═══════════════════════════════════════════════════════════════════ */
+
+@layer utilities {
+  /* Prevent orphaned words */
+  .text-balance  { text-wrap: balance; }
+  .text-pretty   { text-wrap: pretty; }
+
+  /* Consistent section padding */
+  .section-pad   { padding-top: var(--section-py); padding-bottom: var(--section-py); }
+
+  /* Page padding — accounts for fixed navbar height */
+  .page-top      { padding-top: calc(var(--navbar-h) + 4.5rem); }
+
+  /* Horizontal page padding — consistent across all pages */
+  .page-x        { padding-left: var(--container-px); padding-right: var(--container-px); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   KEYBOARD ANIMATIONS (tailwind config extensions)
+═══════════════════════════════════════════════════════════════════ */
+
+/* Dot-grid orb drifts */
+@keyframes drift-a {
+  0%, 100% { transform: translate(0px,   0px);  }
+  25%       { transform: translate(-32px, 26px); }
+  50%       { transform: translate(20px, -22px); }
+  75%       { transform: translate(-16px, 34px); }
+}
+
+@keyframes drift-b {
+  0%, 100% { transform: translate(0px,  0px);  }
+  33%       { transform: translate(26px, -30px); }
+  66%       { transform: translate(-20px, 20px); }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.06; transform: scale(1);    }
+  50%       { opacity: 0.11; transform: scale(1.18); }
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(0);    }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes bob {
+  0%, 100% { opacity: 0.35; transform: translateY(0px); }
+  50%       { opacity: 0.15; transform: translateY(5px); }
 }
