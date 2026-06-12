@@ -34,7 +34,7 @@ export async function POST(req: Request): Promise<Response> {
     async start(controller) {
       try {
         const anthropicStream = client.messages.stream({
-          model: "claude-sonnet-4-5",
+          model: "claude-sonnet-4-6",
           max_tokens: 1024,
           system: buildSystemPrompt(),
           messages,
