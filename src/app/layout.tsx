@@ -28,7 +28,7 @@ const SITE_URL    = "https://maxklein.xyz";
 const SITE_NAME   = "Max Klein";
 const OG_IMAGE    = `${SITE_URL}/opengraph-image`;
 const DESCRIPTION =
-  "International student-athlete building at the intersection of AI, finance, and global entrepreneurship. Division I athlete, economist, and aspiring founder.";
+  "Max Klein — building at the intersection of AI, finance, and global entrepreneurship. Economics & Finance at Butler University and Division I soccer.";
 
 /* ── Viewport ───────────────────────────────────────────────────── */
 
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default:  `${SITE_NAME} — Builder at the Intersection of AI & Finance`,
+    default:  `${SITE_NAME}`,
     template: `%s — ${SITE_NAME}`,
   },
 
@@ -53,18 +53,6 @@ export const metadata: Metadata = {
 
   keywords: [
     "Max Klein",
-    "founder",
-    "AI",
-    "finance",
-    "venture capital",
-    "student athlete",
-    "fintech",
-    "entrepreneurship",
-    "systems thinking",
-    "long-term thinking",
-    "Division I athlete",
-    "economics",
-    "data science",
   ],
 
   authors:  [{ name: "Max Klein", url: SITE_URL }],
@@ -77,14 +65,14 @@ export const metadata: Metadata = {
     locale:      "en_US",
     url:          SITE_URL,
     siteName:    SITE_NAME,
-    title:       `${SITE_NAME} — Builder at the Intersection of AI & Finance`,
+    title:       `${SITE_NAME}`,
     description: DESCRIPTION,
     images: [
       {
         url:    OG_IMAGE,
         width:  1200,
         height: 630,
-        alt:    `${SITE_NAME} — Builder at the Intersection of AI & Finance`,
+        alt:    `${SITE_NAME}`,
       },
     ],
   },
@@ -92,7 +80,7 @@ export const metadata: Metadata = {
   /* ── Twitter / X ────────────────────────────────────────────── */
   twitter: {
     card:        "summary_large_image",
-    title:       `${SITE_NAME} — Builder at the Intersection of AI & Finance`,
+    title:       `${SITE_NAME}`,
     description: DESCRIPTION,
     creator:     "@maxklein",
     images:      [OG_IMAGE],

@@ -19,11 +19,13 @@ interface NavLink {
 /* ─── Constants ──────────────────────────────────────────────────── */
 
 const NAV_LINKS: NavLink[] = [
-  { label: "Home",     href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "About",    href: "/about" },
-  { label: "Now",      href: "/now" },
-  { label: "Ask AI",   href: "/chat" },
+  { label: "Home",       href: "/" },
+  { label: "Projects",   href: "/projects" },
+  { label: "Experience", href: "/experience" },
+  { label: "Now",        href: "/now" },
+  { label: "About",      href: "/about" },
+  { label: "Ask AI",     href: "/ask" },
+  { label: "Contact",    href: "/contact" },
 ];
 
 const easing = [0.22, 1, 0.36, 1] as const;
@@ -231,7 +233,8 @@ function MobileMenu({
 
               {/* CTA */}
               <motion.a
-                href="mailto:max.klein05@outlook.com"
+                href="/contact"
+                onClick={onClose}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-[450] tracking-[0.04em] uppercase text-white/80 border border-white/15 hover:border-white/30 hover:text-white hover:bg-white/[0.04] transition-all duration-300"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
@@ -330,7 +333,9 @@ export default function Navbar() {
           </Link>
 
           {/* ── Center: Nav links (desktop) ── */}
-          <div className="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
+          {/* In-flow flex-1 group: reserves horizontal space and stays centered,
+              so it can never overlap the wordmark or the right cluster. */}
+          <div className="hidden md:flex flex-1 items-center justify-center gap-4 lg:gap-5 px-3">
             {NAV_LINKS.map((link) => (
               <DesktopNavLink key={link.label} {...link} />
             ))}
@@ -338,8 +343,8 @@ export default function Navbar() {
 
           {/* ── Right: Social + Resume + CTA (desktop) / Hamburger (mobile) ── */}
           <div className="flex items-center gap-3 md:gap-4 flex-shrink-0">
-            {/* Socials — desktop only */}
-            <div className="hidden md:flex items-center gap-1">
+            {/* Socials — revealed at xl to leave room for the full 7-link nav */}
+            <div className="hidden xl:flex items-center gap-1">
               <SocialLink href="https://linkedin.com/in/maxklein" label="LinkedIn">
                 <LinkedInIcon />
               </SocialLink>
@@ -364,20 +369,6 @@ export default function Navbar() {
             >
               <ResumeIcon />
               <span>Resume</span>
-            </motion.a>
-
-            {/* Thin divider */}
-            <div className="hidden md:block w-px h-3.5 bg-white/10" />
-
-            {/* CTA — desktop only */}
-            <motion.a
-              href="mailto:max.klein05@outlook.com"
-              className="hidden md:inline-flex items-center gap-1.5 px-[14px] py-[7px] rounded-xl text-[12px] font-[460] tracking-[0.045em] uppercase text-white/75 border border-white/12 hover:border-white/25 hover:text-white hover:bg-white/[0.05] transition-all duration-300"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ duration: 0.2, ease: easing }}
-            >
-              Get in Touch
             </motion.a>
 
             {/* Hamburger — mobile only */}

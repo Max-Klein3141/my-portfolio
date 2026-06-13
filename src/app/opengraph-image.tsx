@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt     = "Max Klein — Builder at the Intersection of AI & Finance";
+export const alt     = "Max Klein";
 export const size    = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -126,7 +126,7 @@ export default function OGImage() {
               maxWidth:      "620px",
             }}
           >
-            Building at the intersection of AI, finance, and global entrepreneurship.
+            [PLACEHOLDER — one-line positioning statement]
           </div>
 
           {/* Pills */}
@@ -137,7 +137,7 @@ export default function OGImage() {
               marginTop:  "36px",
             }}
           >
-            {["AI Systems", "Financial Technology", "D·I Athlete"].map((tag) => (
+            {["[PLACEHOLDER — tag 1]", "[PLACEHOLDER — tag 2]", "[PLACEHOLDER — tag 3]"].map((tag) => (
               <div
                 key={tag}
                 style={{

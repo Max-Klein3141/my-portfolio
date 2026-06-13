@@ -9,7 +9,7 @@
 import { usePathname } from "next/navigation";
 import Footer from "@/components/Footer";
 
-const SUPPRESS_ON: string[] = ["/chat"];
+const SUPPRESS_ON: string[] = ["/chat", "/ask"];
 
 export default function FooterWrapper() {
   const pathname = usePathname();

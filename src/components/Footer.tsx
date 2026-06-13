@@ -208,8 +208,7 @@ export default function Footer() {
             <Reveal delay={0.16} className="mt-7 md:mt-8">
               <p className="text-[16.5px] font-[340] leading-[1.88] text-white/28
                             max-w-[440px]">
-                Building at the intersection of AI, finance,
-                and global entrepreneurship.
+                [PLACEHOLDER — one-line positioning statement]
               </p>
             </Reveal>
           </div>
@@ -220,7 +219,7 @@ export default function Footer() {
 
               {/* Primary CTA */}
               <motion.a
-                href="mailto:max.klein05@outlook.com"
+                href="/contact"
                 className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full
                            bg-white text-black text-[13px] font-[520] tracking-[0.02em]
                            shadow-[0_0_36px_rgba(255,255,255,0.06)]"
@@ -241,7 +240,7 @@ export default function Footer() {
 
               {/* Email — monospace, quiet */}
               <motion.a
-                href="mailto:max.klein05@outlook.com"
+                href="/contact"
                 className="inline-flex items-center gap-2 text-white/25
                            hover:text-white/55 transition-colors duration-300"
                 whileHover={{ x: 2 }}
@@ -250,7 +249,7 @@ export default function Footer() {
                 <MailIcon />
                 <span className="font-[family-name:var(--font-geist-mono)] text-[12px]
                                  font-[400] tracking-[0.04em]">
-                  max.klein05@outlook.com
+                  [PLACEHOLDER — your email]
                 </span>
               </motion.a>
 

@@ -30,71 +30,71 @@ interface Experience {
 const EXPERIENCES: Experience[] = [
   {
     id: "01",
-    period: "2021 — Present",
-    category: "Athletics",
-    environment: "Division I Student-Athlete",
+    period: "[PLACEHOLDER — dates]",
+    category: "[PLACEHOLDER — area]",
+    environment: "[PLACEHOLDER — chapter 1: role / context]",
     context:
-      "Competing at the highest collegiate level demands a particular relationship with time, failure, and the compounding returns of consistent effort. Soccer taught me that meaningful progress is rarely dramatic — it is built through repetition, resilience, and a relentless obsession with marginal improvement.",
-    tags: ["Discipline", "High Performance", "Long-Term Orientation"],
+      "[PLACEHOLDER — what this chapter involved and what you learned from it]",
+    tags: ["[PLACEHOLDER — tag]", "[PLACEHOLDER — tag]", "[PLACEHOLDER — tag]"],
     reflection:
-      "The game is long. Playing it that way changes how you approach everything.",
-    status: "ongoing",
+      "[PLACEHOLDER — a real quote or lesson from this chapter]",
+    status: "forming",
   },
   {
     id: "02",
-    period: "2023",
-    category: "Finance",
-    environment: "Audit & Financial Assurance",
+    period: "[PLACEHOLDER — dates]",
+    category: "[PLACEHOLDER — area]",
+    environment: "[PLACEHOLDER — chapter 2: role / context]",
     context:
-      "Exposure to how large organizations verify, report, and account for the truth. Audit reveals the gap between how institutions present themselves and how they actually operate — a perspective that permanently sharpens judgment about trust, rigor, and the integrity of systems.",
-    tags: ["Financial Reporting", "Internal Controls", "Regulatory Framework"],
+      "[PLACEHOLDER — what this chapter involved and what you learned from it]",
+    tags: ["[PLACEHOLDER — tag]", "[PLACEHOLDER — tag]", "[PLACEHOLDER — tag]"],
     reflection:
-      "Every institution has a story it tells itself. Audit teaches you to read between the lines.",
-    status: "completed",
+      "[PLACEHOLDER — a real quote or lesson from this chapter]",
+    status: "forming",
   },
   {
     id: "03",
-    period: "2023 — 2024",
-    category: "Finance",
-    environment: "Private Banking",
+    period: "[PLACEHOLDER — dates]",
+    category: "[PLACEHOLDER — area]",
+    environment: "[PLACEHOLDER — chapter 3: role / context]",
     context:
-      "Wealth management and institutional client advisory at the highest tier of financial services. Working with high-net-worth individuals and institutional portfolios exposed me to how capital moves at scale, how it compounds across generations, and how the world's most sophisticated allocators think about risk, trust, and time.",
-    tags: ["Wealth Management", "Portfolio Advisory", "Capital Allocation"],
+      "[PLACEHOLDER — what this chapter involved and what you learned from it]",
+    tags: ["[PLACEHOLDER — tag]", "[PLACEHOLDER — tag]", "[PLACEHOLDER — tag]"],
     reflection:
-      "Capital, at its core, is deferred trust. The best allocators understand both deeply.",
-    status: "completed",
+      "[PLACEHOLDER — a real quote or lesson from this chapter]",
+    status: "forming",
   },
   {
     id: "04",
-    period: "2024",
-    category: "Consulting",
-    environment: "Real Estate Consulting",
+    period: "[PLACEHOLDER — dates]",
+    category: "[PLACEHOLDER — area]",
+    environment: "[PLACEHOLDER — chapter 4: role / context]",
     context:
-      "Market analysis, asset valuation, and strategic advisory across property investment decisions. Real estate sits at the intersection of capital allocation, demographic trends, and behavioral finance — one of the world's most information-dense markets, disguised as a physical asset class.",
-    tags: ["Market Analysis", "Asset Valuation", "Investment Strategy"],
+      "[PLACEHOLDER — what this chapter involved and what you learned from it]",
+    tags: ["[PLACEHOLDER — tag]", "[PLACEHOLDER — tag]", "[PLACEHOLDER — tag]"],
     reflection:
-      "The most interesting decisions in real estate are rarely about the property itself.",
-    status: "completed",
+      "[PLACEHOLDER — a real quote or lesson from this chapter]",
+    status: "forming",
   },
   {
     id: "05",
-    period: "2025 — Present",
-    category: "Innovation",
-    environment: "Technology & Entrepreneurship",
+    period: "[PLACEHOLDER — dates]",
+    category: "[PLACEHOLDER — area]",
+    environment: "[PLACEHOLDER — chapter 5: role / context]",
     context:
-      "Moving from understanding existing systems to questioning their fundamental architecture. Building at the intersection of AI, finance, and global markets — exploring where the next generation of financial and technological infrastructure will emerge, and who will design it.",
-    tags: ["Artificial Intelligence", "Systems Design", "Entrepreneurship"],
+      "[PLACEHOLDER — what this chapter involved and what you learned from it]",
+    tags: ["[PLACEHOLDER — tag]", "[PLACEHOLDER — tag]", "[PLACEHOLDER — tag]"],
     reflection:
-      "The best time to understand a system is just before you decide to replace it.",
-    status: "ongoing",
+      "[PLACEHOLDER — a real quote or lesson from this chapter]",
+    status: "forming",
   },
 ];
 
-const STAT_ITEMS = [
-  { value: "3", label: "Industries" },
-  { value: "D·I", label: "Athletics", mono: true },
-  { value: "4+", label: "Countries" },
-  { value: "∞", label: "Long-term", mono: true },
+const STAT_ITEMS: { value: string; label: string; mono?: boolean }[] = [
+  { value: "[—]", label: "[PLACEHOLDER]" },
+  { value: "[—]", label: "[PLACEHOLDER]" },
+  { value: "[—]", label: "[PLACEHOLDER]" },
+  { value: "[—]", label: "[PLACEHOLDER]" },
 ];
 
 /* ─── Sub-components ─────────────────────────────────────────────── */
@@ -364,8 +364,7 @@ export default function ExperiencePage() {
             <Reveal delay={0.2} className="mt-8">
               <p className="text-[17px] font-[340] leading-[1.88] text-white/30
                             max-w-[500px]">
-                Exploring systems, industries, and environments that shape how
-                the world builds, allocates capital, and scales innovation.
+                [PLACEHOLDER — one-line framing of your experience]
               </p>
             </Reveal>
 
@@ -433,36 +432,6 @@ export default function ExperiencePage() {
                 />
               ))}
 
-              {/* Future chapter — ghosted */}
-              <div className="relative flex gap-6 md:gap-10 mt-4">
-                <div className="flex flex-col items-center flex-shrink-0 w-[9px] pt-[5px]">
-                  <div className="w-[9px] h-[9px] rounded-full border border-dashed
-                                   border-white/[0.15] bg-transparent" />
-                </div>
-                <Reveal className="flex-1 pb-4" delay={0.06}>
-                  <div className="flex items-center gap-4 mb-5">
-                    <span className="font-[family-name:var(--font-geist-mono)] text-[10.5px]
-                                     font-[500] tracking-[0.18em] text-white/14">
-                      2026 — ?
-                    </span>
-                    <span className="w-px h-3 bg-white/[0.07]" />
-                    <span className="text-[10px] font-[500] tracking-[0.24em]
-                                     uppercase text-white/14">
-                      Ventures
-                    </span>
-                  </div>
-                  <h2 className="text-[clamp(1.4rem,2.8vw,2.4rem)] font-[265]
-                                  tracking-[-0.025em] text-white/18 mb-4">
-                    Next Chapter
-                  </h2>
-                  <p className="text-[14.5px] font-[340] leading-[1.82]
-                                 text-white/14 max-w-[440px]">
-                    Building at the frontier of AI and financial infrastructure.
-                    Further details forthcoming.
-                  </p>
-                </Reveal>
-              </div>
-
             </div>
           </div>
         </section>
@@ -485,8 +454,7 @@ export default function ExperiencePage() {
                   The Through-Line
                 </p>
                 <p className="text-[15px] font-[340] leading-[1.85] text-white/26">
-                  Each environment was a different lens on the same underlying question:
-                  how do complex systems actually work — and how could they be rebuilt?
+                  [PLACEHOLDER — one line on what connects these chapters]
                 </p>
               </Reveal>
 
@@ -495,23 +463,7 @@ export default function ExperiencePage() {
                 <Reveal delay={0.08}>
                   <p className="text-[clamp(1.3rem,2.6vw,2.1rem)] font-[275]
                                  tracking-[-0.022em] leading-[1.35] text-white/60">
-                    From the discipline of elite athletics to the rigor of institutional
-                    finance — each chapter added a layer of perspective that the last
-                    could not have provided alone.
-                  </p>
-                </Reveal>
-                <Reveal delay={0.16}>
-                  <p className="text-[16.5px] font-[340] leading-[1.9] text-white/30">
-                    Private banking revealed how the world's most sophisticated capital
-                    thinks. Audit revealed how institutions account for themselves. Real
-                    estate revealed how physical and financial worlds collide. Athletics
-                    revealed what long-term commitment actually feels like in the body.
-                  </p>
-                </Reveal>
-                <Reveal delay={0.24}>
-                  <p className="text-[16.5px] font-[340] leading-[1.9] text-white/24">
-                    What they share: each required presence, rigor, and the willingness
-                    to engage with a system on its own terms before questioning it.
+                    [PLACEHOLDER — the connecting thread across your experiences in 2-3 sentences]
                   </p>
                 </Reveal>
               </div>
@@ -546,16 +498,14 @@ export default function ExperiencePage() {
                            tracking-[-0.028em] leading-[1.22]
                            text-white/68 max-w-[700px] mb-10"
               >
-                Every environment I have worked in has made me more convinced:
-                the most important systems of the next decade have not been built yet.
+                [PLACEHOLDER — a closing line about where your experience points]
               </p>
             </Reveal>
 
             <Reveal delay={0.22}>
               <p className="text-[16.5px] font-[340] leading-[1.9]
                             text-white/28 max-w-[460px] mb-14">
-                I am building toward that frontier — with the rigor of finance,
-                the discipline of athletics, and the long-term orientation of a founder.
+                [PLACEHOLDER — what you are building toward]
               </p>
             </Reveal>
 
@@ -563,7 +513,7 @@ export default function ExperiencePage() {
             <Reveal delay={0.3}>
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
                 <motion.a
-                  href="mailto:max.klein05@outlook.com"
+                  href="/contact"
                   className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full
                              bg-white text-black text-[13px] font-[510] tracking-[0.02em]"
                   whileHover={{ scale: 1.025, backgroundColor: "rgba(230,230,230,1)" }}
@@ -600,8 +550,7 @@ export default function ExperiencePage() {
                   Max Klein — Experience — 2026
                 </p>
                 <p className="text-[11px] font-[400] tracking-[0.12em] text-white/12">
-                  {EXPERIENCES.filter((e) => e.status === "ongoing").length} active ·{" "}
-                  {EXPERIENCES.filter((e) => e.status === "completed").length} completed
+                  [PLACEHOLDER — summary stat]
                 </p>
               </div>
             </Reveal>
